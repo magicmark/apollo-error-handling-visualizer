@@ -45,7 +45,7 @@ export default function SchemaPreview() {
 
   return (
     <Section
-      heading="Resoler (Server)"
+      heading="Resolver (Server)"
       description={
         <>
           This is the{" "}
