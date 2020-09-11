@@ -1,31 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚨Apollo Error Handling Visualizer
 
-## Getting Started
+<http://apollo-visualizer.vercel.app/>
 
-First, run the development server:
+> This tool shows the relationship between [nullability](http://spec.graphql.org/draft/#sec-Errors-and-Non-Nullability) and error handling in [GraphQL](https://graphql.org/), with specific respect to [Apollo Client](https://www.apollographql.com/docs/react/).
+>
+> Set the toggles to see how the request / response will change. Scroll to the bottom to see the result!
+>
+> Questions / Suggestions? Reach out to me at [@mark_larah](https://twitter.com/mark_larah)!
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![Preview](https://i.fluffy.cc/qnlD8nwnPKVkFKxHLlFSJVXbnb740z6C.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# apollo-error-handling-visualizer
+-   [Clone a fork of the repo](https://guides.github.com/activities/forking/) and install the project dependencies by running `yarn`
+-   Make your changes, and start the project by running `yarn dev`

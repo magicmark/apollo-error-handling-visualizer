@@ -22,7 +22,7 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Apollo Error Handling Playground</title>
+        <title>Apollo Error Handling Visualizer</title>
       </Head>
 
       <BumbagProvider>

@@ -36,7 +36,7 @@ export default function Preview() {
 
   useEffect(() => {
     refetch();
-  }, [errorPolicy, nullable, resolverBehaviour]);
+  }, [refetch, errorPolicy, nullable, resolverBehaviour]);
 
   return (
     <Box>
