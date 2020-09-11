@@ -10,10 +10,10 @@ const apolloClient = new ApolloClient({
     addTypename: false,
   }),
   uri: "/api/graphql",
-  fetchPolicy: "network-only",
+  fetchPolicy: "no-cache",
   defaultOptions: {
     query: {
-      fetchPolicy: "network-only",
+      fetchPolicy: "no-cache",
     },
   },
 });
