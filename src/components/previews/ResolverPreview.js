@@ -13,7 +13,19 @@ function getResolver(resolverBehaviour) {
     return dedent`
       Player: {
         name(obj, args, context, info) {
+          // Throw a resolver error (that will be caught by graphql-js)
           throw new Error('yikes!');
+        }
+      }
+    `;
+  }
+
+  if (resolverBehaviour === "networkError") {
+    return dedent`
+      Player: {
+        name(obj, args, context, info) {
+          // Return HTTP 500 from the server to represent a network level error
+          throw new InternalServerError();
         }
       }
     `;

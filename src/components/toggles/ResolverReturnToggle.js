@@ -4,13 +4,19 @@ import { atom, useRecoilState } from "recoil";
 import Section from "../section";
 
 const OPTIONS = [
+
+  { key: 1, label: "return 'Anthony Martial'", value: "returnValue" },
+  { key: 2, label: "return null", value: "returnNull" },
   {
-    key: 1,
+    key: 3,
     label: "throw new Error('yikes')",
     value: "throwError",
   },
-  { key: 2, label: "return 'Anthony Martial'", value: "returnValue" },
-  { key: 3, label: "return null", value: "returnNull" },
+  {
+    key: 4,
+    label: "throw new InternalServerError()",
+    value: "networkError",
+  },
 ];
 
 export const resolverBehaviorState = atom({

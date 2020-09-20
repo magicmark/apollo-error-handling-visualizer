@@ -1,24 +1,10 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-
 import { Provider as BumbagProvider } from "bumbag";
 import Head from "next/head";
 import Playground from "../components/Playground";
 import { RecoilRoot } from "recoil";
+import execa from "execa";
 
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache({
-    addTypename: false,
-  }),
-  uri: "/api/graphql",
-  fetchPolicy: "no-cache",
-  defaultOptions: {
-    query: {
-      fetchPolicy: "no-cache",
-    },
-  },
-});
-
-export default function Index() {
+export default function Index({ apolloVersion }) {
   return (
     <>
       <Head>
@@ -27,9 +13,7 @@ export default function Index() {
 
       <BumbagProvider>
         <RecoilRoot>
-          <ApolloProvider client={apolloClient}>
-            <Playground />
-          </ApolloProvider>
+          <Playground apolloVersion={apolloVersion} />
         </RecoilRoot>
       </BumbagProvider>
 
@@ -42,4 +26,16 @@ export default function Index() {
       `}</style>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const { stdout } = await execa.command(
+    "yarn list --pattern @apollo/client --depth=0 --json"
+  );
+
+  const apolloVersion = JSON.parse(stdout).data.trees[0].name.split("@")[2];
+
+  return {
+    props: { apolloVersion },
+  };
 }

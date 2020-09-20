@@ -3,7 +3,6 @@ import { graphql } from "graphql";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 
 function getTypeDefs(nullable) {
-  console.log('nullable is ', nullable)
   return /* GraphQL */ `
     type Player {
       name: ${nullable === "nullable" ? "String" : "String!"}
@@ -77,12 +76,18 @@ export default async (req, res) => {
   );
   assert(
     typeof req.headers["x-demo-resolver-behaviour"] === "string",
-    "Expected x-demo-resolver-behaviourr header to be set"
+    "Expected x-demo-resolver-behaviour header to be set"
   );
   assert(req.method === "POST", "I only support POST requests");
 
   const { query, variables } = req.body;
   assert(typeof query === "string", "expected to recieve a query string");
+
+  if (req.headers["x-demo-resolver-behaviour"] === "networkError") {
+    res.statusCode = 500;
+    res.end('Internal Server Error');
+    return;
+  }
 
   const response = await executeQuery(
     query,
